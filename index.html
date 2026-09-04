@@ -3,101 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini CS</title>
+
+    <title>Browser Strike</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 </head>
+
 <body>
 
 <div id="menu">
     <div class="menu-box">
-        <h1>MINI<span>CS</span></h1>
-        <p class="subtitle">MULTIPLAYER 2D SHOOTER</p>
+        <h1>BROWSER STRIKE</h1>
 
-        <input id="nickname" maxlength="16" placeholder="Twój nick">
+        <input
+            id="nameInput"
+            type="text"
+            maxlength="16"
+            placeholder="Twój nick"
+        >
 
-        <button id="createBtn">UTWÓRZ GRĘ</button>
+        <button id="playButton">
+            GRAJ
+        </button>
 
-        <div class="join-row">
-            <input id="roomCode" maxlength="6" placeholder="KOD">
-            <button id="joinBtn">DOŁĄCZ</button>
-        </div>
+        <p id="serverStatus">Łączenie z serwerem...</p>
 
-        <p id="menuError"></p>
-
-        <div class="controls">
-            <b>WASD</b> poruszanie
-            <b>LPM</b> strzał
-            <b>R</b> przeładowanie
-        </div>
+        <small>
+            WASD — ruch<br>
+            Mysz — celowanie<br>
+            LPM — strzał<br>
+            R — przeładowanie<br>
+            ESC — uwolnij mysz
+        </small>
     </div>
 </div>
 
-<div id="gameUI" class="hidden">
-    <canvas id="game"></canvas>
-
-    <div id="topBar">
-        <div class="teamScore">
-            <span class="ct">CT</span>
-            <strong id="ctScore">0</strong>
-        </div>
-
-        <div id="roundInfo">
-            <div id="timer">02:00</div>
-            <small id="roundText">RUNDA 1</small>
-        </div>
-
-        <div class="teamScore">
-            <strong id="tScore">0</strong>
-            <span class="t">T</span>
-        </div>
-    </div>
+<div id="hud">
 
     <div id="crosshair">
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
+        +
     </div>
 
-    <div id="bottomUI">
-        <div class="health">
-            <span>HP</span>
-            <strong id="hp">100</strong>
-        </div>
-
-        <div class="weapon">
-            <div id="weaponName">GLOCK</div>
-            <div>
-                <strong id="ammo">12</strong>
-                <span>/ 48</span>
-            </div>
-        </div>
+    <div id="health">
+        <span>HP</span>
+        <strong id="healthValue">100</strong>
     </div>
 
-    <div id="scoreboard" class="hidden">
-        <div class="scoreboard-box">
-            <h2>SCOREBOARD</h2>
-
-            <div class="score-head">
-                <span>GRACZ</span>
-                <span>K/D</span>
-            </div>
-
-            <div id="playersList"></div>
-        </div>
+    <div id="ammo">
+        <strong id="ammoValue">30</strong>
+        <span>/ 90</span>
     </div>
 
-    <div id="deadScreen" class="hidden">
-        <h1>ZGINĄŁEŚ</h1>
-        <p>Odrodzenie za <span id="respawnTimer">3</span></p>
+    <div id="players">
+        Gracze: <span id="playerCount">1</span>
     </div>
 
-    <div id="roundScreen" class="hidden">
-        <h1 id="roundResult">RUNDA ROZPOCZĘTA</h1>
-    </div>
+    <div id="message"></div>
+
 </div>
 
-<script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
 <script src="game.js"></script>
 
 </body>
