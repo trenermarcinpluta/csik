@@ -1,0 +1,351 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+    background: #090b0f;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+}
+
+canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    cursor: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* MENU */
+
+#menu {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(rgba(5, 7, 10, .72), rgba(5, 7, 10, .92)),
+        radial-gradient(circle at center, #28303a, #07090c 70%);
+}
+
+.menu-box {
+    width: 390px;
+    padding: 42px;
+    background: rgba(12, 15, 20, .94);
+    border: 1px solid #303741;
+    box-shadow: 0 25px 80px rgba(0,0,0,.65);
+}
+
+h1 {
+    font-size: 52px;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+h1 span {
+    color: #e9a52b;
+}
+
+.subtitle {
+    text-align: center;
+    color: #68727e;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin: 8px 0 35px;
+}
+
+input {
+    width: 100%;
+    height: 48px;
+    margin-bottom: 12px;
+    padding: 0 15px;
+
+    color: white;
+    background: #171b21;
+    border: 1px solid #343b44;
+    outline: none;
+    font-size: 15px;
+}
+
+input:focus {
+    border-color: #e9a52b;
+}
+
+button {
+    width: 100%;
+    height: 48px;
+    border: 0;
+    background: #e9a52b;
+    color: #101010;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .15s;
+}
+
+button:hover {
+    background: #ffb83c;
+}
+
+.join-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.join-row input {
+    margin: 0;
+}
+
+.join-row button {
+    width: 130px;
+}
+
+#menuError {
+    min-height: 25px;
+    color: #ef5350;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.controls {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #292e35;
+    color: #727b85;
+    font-size: 11px;
+    line-height: 25px;
+    text-align: center;
+}
+
+.controls b {
+    color: #ddd;
+    margin: 0 4px;
+}
+
+/* TOP UI */
+
+#topBar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    padding: 12px 28px;
+    background: rgba(7, 9, 12, .86);
+    border-bottom: 1px solid #343a42;
+}
+
+.teamScore {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+}
+
+.teamScore strong {
+    font-size: 28px;
+}
+
+.ct {
+    color: #58a6ff;
+}
+
+.t {
+    color: #e9a52b;
+}
+
+#roundInfo {
+    min-width: 100px;
+    text-align: center;
+}
+
+#timer {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#roundText {
+    color: #858d96;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* CROSSHAIR */
+
+#crosshair {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+#crosshair i {
+    position: absolute;
+    background: #fff;
+    box-shadow: 0 0 2px #000;
+}
+
+#crosshair i:nth-child(1) {
+    width: 2px;
+    height: 7px;
+    left: 8px;
+    top: 0;
+}
+
+#crosshair i:nth-child(2) {
+    width: 2px;
+    height: 7px;
+    left: 8px;
+    bottom: 0;
+}
+
+#crosshair i:nth-child(3) {
+    height: 2px;
+    width: 7px;
+    left: 0;
+    top: 8px;
+}
+
+#crosshair i:nth-child(4) {
+    height: 2px;
+    width: 7px;
+    right: 0;
+    top: 8px;
+}
+
+/* BOTTOM */
+
+#bottomUI {
+    position: fixed;
+    left: 30px;
+    bottom: 25px;
+
+    display: flex;
+    align-items: end;
+    gap: 40px;
+}
+
+.health span {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.health strong {
+    display: block;
+    color: #72d572;
+    font-size: 38px;
+}
+
+.weapon {
+    min-width: 130px;
+}
+
+#weaponName {
+    color: #aaa;
+    font-size: 11px;
+    margin-bottom: 3px;
+}
+
+.weapon strong {
+    font-size: 32px;
+}
+
+.weapon span {
+    color: #777;
+}
+
+/* SCOREBOARD */
+
+#scoreboard {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,.45);
+}
+
+.scoreboard-box {
+    width: 550px;
+    background: rgba(12,15,20,.97);
+    border: 1px solid #39414b;
+    padding: 25px;
+}
+
+.scoreboard-box h2 {
+    color: #e9a52b;
+    margin-bottom: 20px;
+}
+
+.score-head,
+.player-row {
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    padding: 10px 12px;
+}
+
+.score-head {
+    color: #68727e;
+    font-size: 11px;
+    border-bottom: 1px solid #30363e;
+}
+
+.player-row {
+    border-bottom: 1px solid #20252b;
+}
+
+.player-row .ct-player {
+    color: #58a6ff;
+}
+
+.player-row .t-player {
+    color: #e9a52b;
+}
+
+/* DEAD */
+
+#deadScreen,
+#roundScreen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background: rgba(0,0,0,.35);
+    pointer-events: none;
+}
+
+#deadScreen h1,
+#roundScreen h1 {
+    font-size: 50px;
+    text-shadow: 0 3px 20px #000;
+}
+
+#deadScreen p {
+    margin-top: 10px;
+    color: #bbb;
+}
+
+#respawnTimer {
+    color: #e9a52b;
+}
